@@ -14,7 +14,7 @@ A full-stack CRUD application for managing elder care records, built with **Reac
 - 🎨 Single-page React UI
 
 ---
-<img width="541" height="522" alt="image" src="https://github.com/user-attachments/assets/fedc2dd1-10ce-4af4-ae74-5499daf0b36e" />
+<img width="341" height="322" alt="image" src="https://github.com/user-attachments/assets/fedc2dd1-10ce-4af4-ae74-5499daf0b36e" />
 
 ## 🧱 Tech Stack
 
