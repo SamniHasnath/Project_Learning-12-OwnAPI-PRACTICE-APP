@@ -3,8 +3,6 @@
 A full-stack CRUD application for managing elder care records, built with **React**, **Express (Node.js)**, and **PostgreSQL**.
 
 ---
-<img width="500" height="500" alt="Screenshot 2026-03-31 225437" src="https://github.com/user-attachments/assets/9bef9f8f-52b2-4ace-896c-d0d54b8b6598" />
-
 
 ## 🚀 Features
 
@@ -102,6 +100,9 @@ The API runs at:
 ```
 http://localhost:5000
 ```
+
+---
+
 ## 🌐 API Endpoints
 
 Base URL: `http://localhost:5000/api/elders`
