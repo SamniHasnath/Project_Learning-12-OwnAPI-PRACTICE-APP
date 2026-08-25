@@ -166,4 +166,4 @@ React UI  →  fetch()  →  Express API  →  PostgreSQL  →  JSON response  �
 
 ## 👨‍💻 Author
 
-Built by [Samni](mailto:samnihasnath@gmail.com.com) as a learning project for full-stack CRUD + REST API practice.
+Built by [Samni Hasnath](mailto:samnihasnath@gmail.com.com) as a learning project for full-stack CRUD + REST API practice.
