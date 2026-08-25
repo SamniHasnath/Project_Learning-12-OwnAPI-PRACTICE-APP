@@ -1,55 +1,57 @@
-# 🏥 Elder Management System 
+# 🏥 Elder Management System
 
-A full-stack web application for managing elder care records.  
-Built using **React, Node.js (Express), and PostgreSQL**.
+A full-stack CRUD application for managing elder care records, built with **React**, **Express (Node.js)**, and **PostgreSQL**.
 
 ---
 
 ## 🚀 Features
 
-- ➕ Add elder records
+- ➕ Add elder records (name, age, condition)
 - 📄 View all elders
-- ✏️ Update elder details
+- ✏️ Update elder details (full and partial update)
 - ❌ Delete records
-- 🔄 REST API integration
-- 🎨 Simple UI
+- 🔄 REST API backed by PostgreSQL
+- 🎨 Single-page React UI
 
 ---
 
 ## 🧱 Tech Stack
 
-### Frontend
-- React JS
-- Axios
-- CSS
-
-### Backend
-- Node.js
-- Express.js
-- PostgreSQL
+| Layer    | Technology                     |
+| -------- | ------------------------------- |
+| Frontend | React (Create React App), fetch |
+| Backend  | Node.js, Express 5              |
+| Database | PostgreSQL (via `pg`)           |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-
 elders-api/
-server.js
-.env
+├── server.js              # Express API server
+├── .env                    # Backend environment variables (not committed)
+├── package.json
+└── elders-frontend/         # React app
+    ├── src/
+    │   ├── App.js           # UI + API calls
+    │   ├── App.css
+    │   └── index.js
+    └── package.json
+```
 
-elders-frontend/
-src/
-App.js
-components/
+---
 
-````
+## ✅ Prerequisites
+
+- [Node.js](https://nodejs.org/) v18+
+- [PostgreSQL](https://www.postgresql.org/) running locally (or accessible remotely)
 
 ---
 
 ## 🗄️ Database Setup
 
-Create database and table:
+Create the database and table:
 
 ```sql
 CREATE DATABASE caresync;
@@ -62,25 +64,38 @@ CREATE TABLE elders (
   age INT,
   condition VARCHAR(100)
 );
-````
+```
 
 ---
 
 ## ⚙️ Backend Setup
 
-### Install dependencies
+From the repo root (`elders-api/`):
 
-```bash
-npm install
-```
+1. Install dependencies:
 
-### Run server
+   ```bash
+   npm install
+   ```
 
-```bash
-node server.js
-```
+2. Create a `.env` file in the repo root with your database credentials:
 
-Server runs on:
+   ```env
+   DB_HOST=localhost
+   DB_USER=postgres
+   DB_PASSWORD=your_password
+   DB_NAME=caresync
+   DB_PORT=5432
+   PORT=5000
+   ```
+
+3. Start the server:
+
+   ```bash
+   node server.js
+   ```
+
+The API runs at:
 
 ```
 http://localhost:5000
@@ -90,60 +105,65 @@ http://localhost:5000
 
 ## 🌐 API Endpoints
 
-| Method | Endpoint        | Description      |
-| ------ | --------------- | ---------------- |
-| GET    | /api/elders     | Get all elders   |
-| GET    | /api/elders/:id | Get single elder |
-| POST   | /api/elders     | Add new elder    |
-| PUT    | /api/elders/:id | Update elder     |
-| PATCH  | /api/elders/:id | Partial update   |
-| DELETE | /api/elders/:id | Delete elder     |
+Base URL: `http://localhost:5000/api/elders`
+
+| Method | Endpoint          | Description        |
+| ------ | ----------------- | ------------------- |
+| GET    | `/api/elders`     | Get all elders      |
+| GET    | `/api/elders/:id` | Get a single elder  |
+| POST   | `/api/elders`     | Add a new elder     |
+| PUT    | `/api/elders/:id` | Fully update elder  |
+| PATCH  | `/api/elders/:id` | Partially update elder |
+| DELETE | `/api/elders/:id` | Delete elder        |
+
+**POST/PUT body example:**
+
+```json
+{
+  "name": "John Doe",
+  "age": 78,
+  "condition": "Stable"
+}
+```
 
 ---
 
 ## 💻 Frontend Setup
 
-### Install dependencies
+From `elders-frontend/`:
 
 ```bash
+cd elders-frontend
 npm install
-```
-
-### Start React app
-
-```bash
 npm start
 ```
 
-Frontend runs on:
+The app runs at:
 
 ```
 http://localhost:3000
 ```
+
+> The frontend calls the API at `http://localhost:5000/api/elders` (hardcoded in `src/App.js`), so make sure the backend is running first.
 
 ---
 
 ## 🔄 How It Works
 
 ```
-React UI → Express API → PostgreSQL → Response → UI Update
+React UI  →  fetch()  →  Express API  →  PostgreSQL  →  JSON response  →  UI update
 ```
+
+---
+
+## 📌 Notes
+
+- Start the database and backend **before** the frontend.
+- CORS is enabled on the backend, so the React dev server (port 3000) can call the API (port 5000) directly.
+- The `.env` file is required for the backend to connect to PostgreSQL — do not commit it.
 
 ---
 
 ## 👨‍💻 Author
 
-Developed as a learning full-stack project for CRUD + REST API practice.
-
----
-
-## 📌 Note
-
-Make sure backend and database are running before starting frontend.
-
-````
-
-# 💡 DONE ✔
-
-Now project is: ✔ Professional
-
+Built by [Samni](mailto:samnihasnath@gmail.com.com) as a learning project for full-stack CRUD + REST API practice.
